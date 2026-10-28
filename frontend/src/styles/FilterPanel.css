@@ -1,0 +1,112 @@
+.filter-panel {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--border-color);
+}
+
+.filters-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.filter-group {
+  flex: 1;
+  min-width: 180px;
+}
+
+.filter-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-value {
+  color: var(--accent-primary);
+  font-weight: 700;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239ca3af' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+.filter-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--bg-secondary);
+  appearance: none;
+  cursor: pointer;
+}
+
+.filter-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.filter-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.slider-labels {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.slider-labels .filter-slider {
+  flex: 1;
+}
+
+.alpha-slider {
+  background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary));
+}
+
+@media (max-width: 600px) {
+  .filters-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+}
+
+
+

@@ -1,0 +1,13 @@
+# API
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+python-dotenv>=1.0.0
+pydantic>=2.7.0
+
+# Redis + RedisVL (HybridQuery / FT.HYBRID needs redis-py >= 7.1 and redisvl >= 0.17)
+redis>=7.1.0
+redisvl>=0.17.0
+
+# Embeddings (HFTextVectorizer -> sentence-transformers/all-MiniLM-L6-v2, 384 dims)
+sentence-transformers>=3.0.0
+torch>=2.2.0

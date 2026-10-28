@@ -1,0 +1,12 @@
+.git
+.env
+.venv
+venv
+__pycache__
+*.py[cod]
+node_modules
+dist
+*.log
+.DS_Store
+Dockerfile*
+docker-compose*.yml

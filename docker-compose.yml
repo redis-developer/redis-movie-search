@@ -1,0 +1,41 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Redis Cloud URL from .env; falls back to the local redis service below
+      - REDIS_URL=${REDIS_URL:-redis://redis:6379}
+    volumes:
+      - ./resources:/app/resources
+      - hf-cache:/root/.cache/huggingface
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  # Optional local Redis 8.4+ (has FT.HYBRID). Start with:
+  #   docker compose --profile local-redis up -d
+  redis:
+    image: redis:8.4
+    profiles: ["local-redis"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+volumes:
+  hf-cache:
+  redis-data:
